@@ -1,0 +1,22 @@
+{
+	"$schema": "https://json.schemastore.org/package.json",
+	"name": "vue-vuetify-layout",
+	"version": "0.0.0",
+	"description": "Vue3 Vuetify TypeScript Starter project for Vite.",
+	"private": true,
+	"license": "MIT",
+	"type": "module",
+	"author": {
+		"name": "mahdi toosi",
+		"email": "mailmahditoosi@gmail.com",
+		"url": "https://github.com/mahdi-toosi"
+	},
+	"homepage": "https://github.com/mahdi-toosi/vite-vuetify-layout",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mahdi-toosi/vite-vuetify-layout.git"
+	},
+	"bugs": {
+		"url": "https://github.com/mahdi-toosi/vite-vuetify-layout/issues"
+	}
+}

@@ -1,0 +1,12 @@
+{
+	"recommendations": [
+		"vue.volar",
+		"roonie007.hide-files",
+		"gruntfuggly.todo-tree",
+		"esbenp.prettier-vscode",
+		"dbaeumer.vscode-eslint",
+		"stylelint.vscode-stylelint",
+		"aaron-bond.better-comments",
+		"Vue.vscode-typescript-vue-plugin",
+	]
+}
