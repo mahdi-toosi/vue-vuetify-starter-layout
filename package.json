@@ -1,11 +1,6 @@
 {
 	"$schema": "https://json.schemastore.org/package.json",
 	"license": "MIT",
-	"engines": {
-		"node": ">=18.13.0",
-		"yarn": ">=1.22.19"
-	},
-	"packageManager": "yarn@3.4.1",
 	"scripts": {
 		"dev": "vite",
 		"build": "cross-env NODE_ENV=production run-p type-check build-only",

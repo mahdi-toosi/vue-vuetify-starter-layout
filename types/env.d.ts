@@ -9,7 +9,6 @@ interface ImportMetaEnv {
 	// add .env variables.
 	readonly NODE_ENV: string
 	readonly VITE_BASE_URL: string
-	readonly VITE_APP_TITLE: string
 	readonly VITE_DEFAULT_TITLE: string
 	readonly VITE_APP_WEBSTORAGE_NAMESPACE: string
 }

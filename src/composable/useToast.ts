@@ -1,32 +1,22 @@
 import { ref } from 'vue'
 // ? types
-export type Variant = 'error' | 'success' | 'warning' | 'info'
-type Variants = Record<Variant, { color: string }>
-interface ToastPayload {
+export type Mode = 'error' | 'success' | 'warning' | 'info' | 'secondary'
+interface Toast {
 	msg: string
-	mode?: Variant
+	mode?: Mode
 	timeout?: number
 	hideCloseButton?: boolean
-}
-interface Toast extends ToastPayload {
-	variant: { color: string }
 }
 
 // State
 const queue = ref<Toast[]>([])
 export const show = ref(false)
+const defaultMode: Mode = 'error'
 export const toast = ref({} as Toast)
-const defaultVariant: Variant = 'error'
-const variants = {
-	error: { color: 'red' },
-	info: { color: 'blue-grey' },
-	success: { color: 'green' },
-	warning: { color: 'orange' },
-} as Variants
 
 // Actions
-export function showToast(payload: ToastPayload) {
-	const _toast = { ...payload, variant: variants[payload.mode || defaultVariant] } as Toast
+export function showToast(payload: Toast) {
+	const _toast = { ...payload, mode: payload.mode || defaultMode } as Toast
 	queue.value.push(_toast)
 	updateQueue()
 }

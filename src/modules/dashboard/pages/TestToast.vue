@@ -1,10 +1,9 @@
 <script lang="ts" setup>
-import { showToast, type Variant } from '@/composable/useToast'
+import { showToast, type Mode } from '@/composable/useToast'
 
-const showSnackbar = (mode: Variant) => {
+function onShowToast(mode: Mode) {
 	showToast({
 		mode,
-		timeout: 99999,
 		msg: `test ${mode} toast`,
 	})
 }
@@ -12,18 +11,18 @@ const showSnackbar = (mode: Variant) => {
 
 <template>
 	<v-container class="about">
-		<h1>This is an Test Toast page</h1>
+		<h1 class="mb-5">This is an Test Toast page</h1>
 
 		<div class="flex gap-5">
-			<v-btn class="rounded-circle pa-4" color="primary" @click="showSnackbar('info')">
-				test info toast
-			</v-btn>
+			<v-btn color="primary" @click="onShowToast('info')">test info toast</v-btn>
 
-			<v-btn color="success" @click="showSnackbar('success')">test success toast</v-btn>
+			<v-btn color="success" @click="onShowToast('success')">test success toast</v-btn>
 
-			<v-btn color="secondary" @click="showSnackbar('warning')">test warning toast</v-btn>
+			<v-btn color="warning" @click="onShowToast('warning')">test warning toast</v-btn>
 
-			<v-btn color="error" @click="showSnackbar('error')">test error toast</v-btn>
+			<v-btn color="error" @click="onShowToast('error')">test error toast</v-btn>
+
+			<v-btn color="secondary" @click="onShowToast('secondary')">test secondary toast</v-btn>
 		</div>
 	</v-container>
 </template>

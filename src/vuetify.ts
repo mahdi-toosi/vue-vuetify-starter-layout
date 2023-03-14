@@ -45,6 +45,40 @@ export default createVuetify({
 	// https://next.vuetifyjs.com/en/features/theme/
 	theme: {
 		defaultTheme: 'dark',
+		themes: {
+			light: {
+				colors: {
+					background: '#FFFFFF',
+					surface: '#FFFFFF',
+					'surface-variant': '#424242',
+					'on-surface-variant': '#EEEEEE',
+					primary: '#094bb7',
+					'primary-darken-1': '#3700B3',
+					secondary: '#58667a',
+					'secondary-darken-1': '#018786',
+					error: '#af0f0f',
+					info: '#2196F3',
+					success: '#4CAF50',
+					warning: '#d78b09',
+				},
+			},
+			dark: {
+				colors: {
+					background: '#121212',
+					surface: '#212121',
+					'surface-variant': '#BDBDBD',
+					'on-surface-variant': '#424242',
+					primary: '#094bb7',
+					'primary-darken-1': '#3700B3',
+					secondary: '#58667a',
+					'secondary-darken-1': '#03DAC5',
+					error: '#af0f0f',
+					info: '#2196F3',
+					success: '#4CAF50',
+					warning: '#d78b09',
+				},
+			},
+		},
 	},
 })
 

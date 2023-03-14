@@ -7,3 +7,4 @@ public/assets/
 tsconfig.*.json
 yarn-error.log
 yarn.lock
+*.scss

@@ -5,10 +5,10 @@ import { show, hideToast, toast } from '@/composable/useToast'
 <template>
 	<v-snackbar
 		v-model="show"
-		@update:model-value="hideToast"
-		:color="toast.variant?.color"
+		:color="toast.mode"
 		location="bottom left"
 		:timeout="toast.timeout"
+		@update:model-value="hideToast"
 	>
 		{{ toast.msg }}
 		<template v-if="!toast.hideCloseButton" #actions>

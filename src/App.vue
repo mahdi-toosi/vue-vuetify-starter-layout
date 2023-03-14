@@ -20,8 +20,6 @@ const theme = useTheme()
 const globalStore = useGlobalStore()
 const dashboardStore = useDashboardStore()
 
-const title = import.meta.env.VITE_APP_TITLE || 'Vuetify3 Application'
-
 /** drawer visibility */
 const drawer = ref<boolean>(false)
 
@@ -44,7 +42,6 @@ const themeColor = computed(() => theme.computedThemes.value[isDark.value].color
 watch(loading, async () => nextTick())
 
 onMounted(() => {
-	document.title = title
 	loading.value = false
 	// eslint-disable-next-line no-console
 	console.log('version:', meta.version)
@@ -59,7 +56,7 @@ onMounted(() => {
 
 		<v-app-bar>
 			<v-app-bar-nav-icon @click="drawer = !drawer" />
-			<v-app-bar-title tag="h1">{{ title }}</v-app-bar-title>
+			<v-app-bar-title tag="h1">Vuetify3 Application</v-app-bar-title>
 			<v-spacer />
 			<app-bar-menu-component />
 
@@ -77,10 +74,6 @@ onMounted(() => {
 				<component :is="Component" :key="route.path" />
 			</router-view>
 		</v-main>
-
-		<v-overlay v-model="loading" app class="justify-center align-center">
-			<v-progress-circular indeterminate size="64" />
-		</v-overlay>
 
 		<!-- TOAST -->
 		<TheToast />

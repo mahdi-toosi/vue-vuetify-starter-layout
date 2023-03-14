@@ -12,8 +12,21 @@ import fs from 'node:fs'
 
 const port = 3000
 const limitBytes = 5e6 // 5 mg
+const eslintCheckerCommand =
+	'eslint . --fix --cache --cache-location ./node_modules/.vite/vite-plugin-eslint'
+const stylelintCheckerCommand =
+	'stylelint . --fix --cache-location ./node_modules/.vite/vite-plugin-stylelint'
 
 export default defineConfig(async ({ mode }): Promise<UserConfig> => {
+	// https://github.com/fi3ework/vite-plugin-checker
+	const checkerPlugin = checker({
+		vueTsc: true,
+		typescript: true,
+		eslint: { lintCommand: eslintCheckerCommand },
+		stylelint: { lintCommand: stylelintCheckerCommand },
+		overlay: { initialIsOpen: false, panelStyle: 'direction: ltr;' },
+	})
+
 	const config: UserConfig = {
 		// https://vitejs.dev/config/server-options.html
 		server: {
@@ -43,15 +56,7 @@ export default defineConfig(async ({ mode }): Promise<UserConfig> => {
 				styles: { configFile: 'src/assets/styles/settings.scss' },
 			}),
 			// vite-plugin-checker
-			// https://github.com/fi3ework/vite-plugin-checker
-			checker({
-				typescript: true,
-				vueTsc: true,
-				eslint: {
-					lintCommand:
-						'eslint . --fix --cache --cache-location ./node_modules/.vite/vite-plugin-eslint', // for example, lint .ts & .tsx
-				},
-			}),
+			process.env.VITEST ? undefined : checkerPlugin,
 		],
 		// Resolver
 		resolve: {
