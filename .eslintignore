@@ -1,0 +1,11 @@
+.husky/
+.vscode/
+.yarn/
+coverage/
+dist/
+public/assets/
+tsconfig.*.json
+yarn-error.log
+yarn.lock
+node_modules
+*.scss

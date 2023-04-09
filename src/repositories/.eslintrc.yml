@@ -1,0 +1,41 @@
+root: true
+env:
+    browser: true
+    es2022: true # Vuetify recommended
+    node: true
+extends:
+    - eslint:recommended
+    - plugin:@typescript-eslint/eslint-recommended
+    - plugin:import/recommended
+    - plugin:import/typescript
+    - plugin:yaml/recommended
+plugins:
+    - '@typescript-eslint'
+    - html
+parser: vue-eslint-parser
+parserOptions:
+    ecmaVersion: latest
+    parser: '@typescript-eslint/parser'
+    sourceType: module
+    createDefaultProgram: true
+    project:
+        - ./tsconfig.json
+rules:
+    new-cap: off
+    no-invalid-this: off
+    no-unused-vars: off
+settings:
+    import/parsers:
+        '@typescript-eslint/parser':
+            - '*.ts'
+    import/resolver:
+        typescript: true
+        node: true
+        alias:
+            map:
+                - ['@', './src']
+                - ['~', './node_modules']
+            extensions:
+                - .ts
+    vite:
+        configPath: ./vite.config.ts

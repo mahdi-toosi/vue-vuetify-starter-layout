@@ -1,0 +1,34 @@
+{
+	"stylelint.validate": ["vue"],
+	"editor.formatOnSave": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	},
+	"[vue]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+    "files.exclude": {
+		"**/.git": true,
+		"**/.svn": true,
+		"**/.hg": true,
+		"**/CVS": true,
+		"**/.DS_Store": true,
+		"**/Thumbs.db": true
+	},
+    "hide-files.files": [],
+    "cSpell.words": [
+		"brotli",
+		"commitlint",
+		"Persistedstate",
+		"pinia",
+		"stylelint",
+		"tailwindcss",
+		"vazir",
+		"vuejs",
+		"Vuetify",
+		"WEBSTORAGE"
+	]
+}

@@ -1,0 +1,7 @@
+.husky/
+.vscode/
+.yarn/
+coverage/
+node_modules
+dist/
+public/assets/
