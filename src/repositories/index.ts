@@ -1,13 +1,10 @@
 import axios from './api'
 import { provide, inject } from 'vue'
-import type { AxiosInstance } from 'axios'
 import repositoryContainer from '@/repositories'
+// ? types
+import type { AxiosInstance } from 'axios'
 // ? services
 import dogs, { type DogsRepo } from './dogs'
-
-interface Services {
-	dogs: DogsRepo
-}
 
 function lazyBind<T>(repoFactory: any, repoInterface: T, axios: AxiosInstance) {
 	return {
@@ -21,7 +18,7 @@ function lazyBind<T>(repoFactory: any, repoInterface: T, axios: AxiosInstance) {
 				[method]: resolvedMethod,
 			}
 		}, {}),
-	}
+	} as T
 }
 
 export const RepositoryIdentifier = Symbol('api repositories')
@@ -29,7 +26,7 @@ export function useRepositoryProvider() {
 	provide(RepositoryIdentifier, repositoryContainer(axios))
 }
 export function useRepositoryContext() {
-	return inject(RepositoryIdentifier) as Services
+	return inject(RepositoryIdentifier) as ReturnType<typeof repositories>
 }
 
 export default function repositories(axios: AxiosInstance) {
